@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 맞추기 게임</title>
+    <link rel="stylesheet" href="번호 맞추기.css">
+    <style>
+.container{
+    text-align: center;
+}
+body {
+    height: 100vh;
+    background: url(보노보노.jpeg) no-repeat center;
+    background-size: cover;
+}
+    </style>
+</head>
+<body>
+
+    <h1 class="container">숫자맞추기 게임</h1>
+    <input type="text" id="answer" style="margin: 10px 44.65%;">
+    <p></p> 
+    
+    <span style="margin: 335px;"></span><input value="시작" type="button" id="start" style="text-align: center; background-color: black; color: white;">
+    <input type="button" value="리셋" id="restart" style="text-align: center; background-color: black; color: white;">
+    <p class="time"></p>
+    <script>
+        let random = 0;
+        let answer = document.getElementById("answer");
+        let start = document.getElementById("start");
+        let restart = document.getElementById("restart");
+        let time = 5;
+        let text = document.getElementById("text");
+        var result =  Math.floor(Math.random() * 100 );
+        start.onclick = function(){
+            if(Number(answer.value) == ''){
+                alert('뭐라도 써라' + ' ' + '기회: ' + time);
+            }
+            else if(Number(answer.value) == result){
+                alert('정답');
+            }
+            else if(Number(answer.value) > result){
+                time--;
+                alert('DOWN!!' + ' ' + '기회: ' + time);
+                
+            }
+            else if(Number(answer.value) < result){
+                time--;
+                alert('UP!!' + ' ' + '기회: ' + time);
+                
+            }
+            time.ineerHTML = "time";
+            if (time === 0) {
+                alert('게임 오버');
+                start.disabled = true;
+            }
+            }
+        restart.onclick = function() {
+            result = Math.floor(Math.random() * 100);
+            time = 5;
+            start.disabled = false;
+            answer.value = '';
+            alert('리셋');
+        }
+    </script>
+</body>
+</html>
