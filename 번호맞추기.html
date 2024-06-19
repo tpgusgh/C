@@ -4,65 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>숫자 맞추기 게임</title>
-    <link rel="stylesheet" href="번호 맞추기.css">
-    <style>
-.container{
-    text-align: center;
-}
-body {
-    height: 100vh;
-    background: url(보노보노.jpeg) no-repeat center;
-    background-size: cover;
-}
-    </style>
+    <link rel="stylesheet" href="번호 맞추기.css"> 
 </head>
 <body>
-
-    <h1 class="container">숫자맞추기 게임</h1>
-    <input type="text" id="answer" style="margin: 10px 44.65%;">
-    <p></p> 
+    <img src="기적.jpeg" alt="기적의 검">  
+    <img src="중국광고.jpeg" alt="중국광고들" class="doo">
+    
+    <h1 style="text-align: center; color: fuchsia; ">숫자맞추기 게임</h1>
+    <div class="InputContainer">
+        <input type="text" id="answer" class="input">
+    </div>
     
     <span style="margin: 335px;"></span><input value="시작" type="button" id="start" style="text-align: center; background-color: black; color: white;">
     <input type="button" value="리셋" id="restart" style="text-align: center; background-color: black; color: white;">
-    <p class="time"></p>
-    <script>
-        let random = 0;
-        let answer = document.getElementById("answer");
-        let start = document.getElementById("start");
-        let restart = document.getElementById("restart");
-        let time = 5;
-        let text = document.getElementById("text");
-        var result =  Math.floor(Math.random() * 100 );
-        start.onclick = function(){
-            if(Number(answer.value) == ''){
-                alert('뭐라도 써라' + ' ' + '기회: ' + time);
-            }
-            else if(Number(answer.value) == result){
-                alert('정답');
-            }
-            else if(Number(answer.value) > result){
-                time--;
-                alert('DOWN!!' + ' ' + '기회: ' + time);
-                
-            }
-            else if(Number(answer.value) < result){
-                time--;
-                alert('UP!!' + ' ' + '기회: ' + time);
-                
-            }
-            time.ineerHTML = "time";
-            if (time === 0) {
-                alert('게임 오버');
-                start.disabled = true;
-            }
-            }
-        restart.onclick = function() {
-            result = Math.floor(Math.random() * 100);
-            time = 5;
-            start.disabled = false;
-            answer.value = '';
-            alert('리셋');
-        }
-    </script>
+    <div id="imageContainer2">
+        <div class="caption" id="yoo2">흥, 그렇게 실망스러운 행동을 하셨군요. 좀 더 신경 써보셔야 할 텐데 말이죠. 자신있으면 한번 더 도전해보시길.</div>
+    </div>
+    <div id="imageContainer">
+        <div class="caption" id="yoo" style="display: none;">수고 많았어요! 이 게임의 영웅이 되셨어요. 축하해요, 그리고 미래에도 함께 하자구요!</div>
+    </div>
+    <script src="번호 맞추기.js"></script>
 </body>
 </html>
